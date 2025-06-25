@@ -19,10 +19,16 @@ class LoginController extends Controller
     // Proses login
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+        $credentials = $request->validate(
+            [
+                'email' => ['required', 'email'],
+                'password' => ['required'],
+            ],
+            [
+                'email' => 'harus di isi email yang sesusai.',
+                'password' => 'harus di isi password yang sesuai.',
+            ]
+        );
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -41,8 +47,8 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Email salah.',
-            'password' => 'password salah '
+            'email' => 'Email salah coba lagi.',
+            'password' => 'password salah coba lagi. '
         ])->withInput();
 
     }
