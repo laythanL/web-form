@@ -22,7 +22,7 @@
         <div class="mb-4">
           <label for="nama" class="block text-white font-semibold mb-1">Nama</label>
           <input type="text" id="nama" name="nama" placeholder="Masukkan nama support"
-            class="w-full p-2 bg-gray-600 text-white placeholder:text-white outline-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+            class=" w-full p-2 bg-gray-600 text-white placeholder:text-white outline-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
         </div>
         <div class="mb-4">
           <label for="email" class="block text-white font-semibold mb-1">Email</label>
@@ -31,7 +31,7 @@
         </div>
         <div class="mb-4">
           <label for="telepon" class="block text-white font-semibold mb-1">Telepon</label>
-          <input type="number" id="telepon" name="telepon" placeholder="Masukkan nomor telepon support"
+          <input type="text" id="telepon" name="telepon" placeholder="Masukkan nomor telepon support"
             class="w-full p-2 bg-gray-600 text-white placeholder:text-white outline-none ring:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
         </div>
         <div class="mb-4">
