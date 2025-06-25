@@ -69,6 +69,7 @@
               <option value="dipinjam" {{ old('status') == 'dipinjam' ? 'selected' : '' }}>Dipinjam</option>
             </select>
           </div>
+
         </div>
 
         {{-- Tombol --}}

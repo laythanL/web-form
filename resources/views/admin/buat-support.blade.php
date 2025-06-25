@@ -14,7 +14,7 @@
 
 
   <div class="flex items-center justify-center min-h-screen">
-    <div class="bg-[#202020] border-1 p-6 w-full max-w-2xl rounded-xl border-white shadow-xl">
+    <div class="bg-[#202020] border-1 p-6 w-full max-w-lg rounded-xl border-white shadow-xl">
       <h1 class="text-white text-center text-xl mb-2 font-semibold ">tambahkan data support </h1>
 
       <form method="POST" action="{{route('admin.store-support')}}">
@@ -22,27 +22,38 @@
         <div class="mb-4">
           <label for="nama" class="block text-white font-semibold mb-1">Nama</label>
           <input type="text" id="nama" name="nama" placeholder="Masukkan nama support"
-            class=" w-full p-2 bg-gray-600 text-white placeholder:text-white outline-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+            class=" w-full p-2 bg-gray-600 text-white placeholder:text-gray-300 outline-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+          @error('nama')
+        <div class="text-red-500 text-sm">{{ $message }}</div>
+      @enderror
         </div>
         <div class="mb-4">
           <label for="email" class="block text-white font-semibold mb-1">Email</label>
           <input type="email" id="email" name="email" placeholder="Masukkan eamail support"
-            class="w-full p-2 bg-gray-600 text-white placeholder:text-white outline-none ring:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+            class="w-full p-2 bg-gray-600 text-white placeholder:text-gray-300 outline-none ring:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+          @error('email')
+        <div class="text-red-500 text-sm">{{ $message }}</div>
+      @enderror
         </div>
         <div class="mb-4">
           <label for="telepon" class="block text-white font-semibold mb-1">Telepon</label>
           <input type="text" id="telepon" name="telepon" placeholder="Masukkan nomor telepon support"
-            class="w-full p-2 bg-gray-600 text-white placeholder:text-white outline-none ring:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+            class="w-full p-2 bg-gray-600 text-white placeholder:text-gray-300 outline-none ring:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+          @error('telepon')
+        <div class="text-red-500 text-sm">{{ $message }}</div>
+      @enderror
         </div>
         <div class="mb-4">
           <label for="alamat" class="block text-white font-semibold mb-1">Alamat</label>
-
-          <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat support"
-            class="w-full p-2 bg-gray-600 text-white placeholder:text-white outline-none ring:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+          <textarea placeholder="masukkan alamat support" name="alamat" id="alamat"
+            class="w-full p-2 bg-gray-600 rounded-lg text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 "></textarea>
+          @error('alamat')
+        <div class="text-red-500 text-sm">{{ $message }}</div>
+      @enderror
         </div>
         <div class="flex justify-center">
           <button type="submit"
-            class=" px-10 py-2 text-white cursor-pointer bg-blue-700 rounded-sm hover:bg-blue-500">tambahkan
+            class=" px-10 py-2 text-white cursor-pointer bg-blue-700 rounded-lg hover:bg-blue-400 transition-colors duration-300">tambahkan
             staf</button>
         </div>
       </form>

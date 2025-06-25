@@ -43,6 +43,10 @@ class ClientController extends Controller
             'email' => 'required|string|max:100|unique:clients,email',
             'no_telepon' => 'required|string|max:100',
             'alamat' => 'nullable|string|max:100',
+        ],[
+            'nama_perusahaan' => 'wajib di isi ',
+            'email' => 'wajib di isi email',
+            'no_telepon' => 'wajib di isi nomor telepon',
         ]);
 
         Client::create($validated);

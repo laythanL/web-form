@@ -5,25 +5,25 @@
 @section('content')
 
 
-    <h1 class="text-3xl font-bold text-center text-white mb-6">List client</h1>
-    <div class="flex items-center justify-between">
-      <x-toolbar action="{{ route('admin.list-client') }}" />
-      <a href="{{ route('admin.buat-client') }}"
-      class="inline-block text-white rounded-lg py-2 px-10 bg-black hover:bg-white hover:text-black transition-all duration-200 cursor-pointer my-5 border border-white">
-      tambah client
-      </a>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      @forelse ($clients as $index => $client)
-      <div
-      class="bg-[#111111] rounded-xl shadow-lg p-4 border border-white/[0.2] hover:transform hover:-translate-x-1 hover:shadow-[-8px_0_25px_rgba(74,158,255,0.3)] hover:border-[#4a9eff] transition-all duration-[300ms] cursor-pointer">
-      <h3 class="text-xl font-semibold text-white">{{ $client->nama_perusahaan }}</h3>
-      <p class="text-md text-gray-400 p-2">{{ $client->email }}</p>
-      <p class="text-sm text-blue-400 py-2"> <i class="fa-solid fa-phone"></i> {{ $client->no_telepon }}</p>
-      <p class="text-sm text-gray-300 py-2"><i class="fa-solid fa-house"></i> {{ $client->alamat }}</p>
+  <h1 class="text-3xl font-bold text-center text-white mb-6">List client</h1>
+  <div class="flex items-center justify-between">
+    <x-toolbar action="{{ route('admin.list-client') }}" />
+    <a href="{{ route('admin.buat-client') }}"
+    class="inline-block text-white rounded-lg py-2 px-10 bg-black hover:bg-white hover:text-black transition-all duration-200 cursor-pointer my-5 border border-white">
+    tambah client
+    </a>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    @forelse ($clients as $index => $client)
+    <div
+    class="bg-[#111111] rounded-xl shadow-lg p-4 border border-white/[0.2] hover:transform hover:-translate-x-1 hover:shadow-[-8px_0_25px_rgba(74,158,255,0.3)] hover:border-[#4a9eff] transition-all duration-[300ms] cursor-pointer">
+    <h3 class="text-xl font-semibold text-white">{{ $client->nama_perusahaan }}</h3>
+    <p class="text-md text-gray-400 p-2">{{ $client->email }}</p>
+    <p class="text-sm text-blue-400 py-2"> <i class="fa-solid fa-phone"></i> {{ $client->no_telepon }}</p>
+    <p class="text-sm text-gray-300 py-2"><i class="fa-solid fa-building"></i> {{ $client->alamat }}</p>
 
-     
-  <div class="flex gap-2 mt-3">
+
+    <div class="flex gap-2 mt-3">
       {{-- Tombol Edit --}}
       <div class="flex items-center gap-2 px-3 py-2  group">
       <a href="{{ route('admin.edit-client', $client->id) }}"
@@ -52,14 +52,14 @@
     </div>
 
 
-      </div>
+    </div>
     @empty
-      <div class="col-span-3 text-center text-gray-300">Tidak ada data perusahaan.</div>
+    <div class="col-span-3 text-center text-gray-300">Tidak ada data perusahaan.</div>
     @endforelse
-    </div>
+  </div>
 
-    <div class="mt-6 text-center">
-      {{ $clients->withQueryString()->links() }}
-    </div>
+  <div class="mt-6 text-center">
+    {{ $clients->withQueryString()->links() }}
+  </div>
 
 @endsection

@@ -43,9 +43,14 @@ class SupportController extends Controller
     {
         $support = $request->validate([
             'nama' => 'required|string|max:100',
-            'email' => 'email|nullable|max:100',
-            'telepon' => 'string|nullable|max:100',
-            'alamat' => 'string|nullable|max:100'
+            'email' => 'email|required|max:100',
+            'telepon' => 'string|required|max:100',
+            'alamat' => 'string|required|max:100'
+        ], [
+            'nama' => 'rwajib di isi nama ',
+            'email' => 'wajib di isi email',
+            'telepon' => 'wajib di isi nomor telepon ',
+            'alamat' => 'wajib di isi alamat '
         ]);
 
         Support::create($support);

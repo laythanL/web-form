@@ -3,7 +3,6 @@
 @section('title', 'admin dashboard')
 @section('content')
 
-
   <h1 class="text-3xl font-bold text-center text-white mb-6">List Support</h1>
   <div class="flex items-center justify-between">
     <x-toolbar :action="route('admin.dashboard')" />
