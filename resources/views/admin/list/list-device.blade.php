@@ -14,49 +14,28 @@
     tambah device
     </a>
   </div>
-  <div class="overflow-x-auto bg-white shadow-md rounded-lg">
-    <table class="min-w-full divide-y divide-gray-200">
-    <thead class="bg-gray-100">
-      <tr>
-      <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">#</th>
-      <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">nama device</th>
-      <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Kode </th>
-      <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Type</th>
-      <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Status</th>
-      <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Dipakai</th>
-      <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Lokasi</th>
-      <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Aksi</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-200">
-      @forelse ($devices as $index => $device)
-      <tr>
-      <td class="px-4 py-2 text-sm text-gray-800">{{ $index + 1 }}</td>
-      <td class="px-4 py-2 text-sm text-gray-800">{{ $device->nama_device }}</td>
-      <td class="px-4 py-2 text-sm text-gray-800">{{ $device->device_code }}</td>
-      <td class="px-4 py-2 text-sm text-gray-800">{{ $device->type }}</td>
-      <td class="px-4 py-2 text-sm text-gray-800 capitalize">{{ $device->status }}</td>
-      <td class="px-4 py-2 text-sm text-gray-800 capitalize">{{ $device->assignedUser->nama ?? '-' }}</td>
-      <td class="px-4 py-2 text-sm text-gray-800">{{ $device->location ?? '-' }}</td>
-      <td class="px-4 py-2 text-sm">
-      <a href="{{ route('admin.update-device', $device->id) }}"
-      class="text-yellow-600 hover:text-yellow-800 font-medium">Edit</a>
-      <form action="{{ route('admin.delete-device', $device->id) }}" method="POST" class="inline">
-      @csrf
-      @method('DELETE')
-      <button onclick="return confirm('Yakin ingin hapus?')"
-        class="text-red-600 hover:text-red-800 font-medium">Hapus</button>
-      </form>
-      </td>
-      </tr>
+
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    @forelse ($devices as $index => $device)
+    <div
+    class="bg-[#111111] rounded-xl shadow-lg p-4 border border-white/[0.2] hover:transform hover:-translate-x-1 hover:shadow-[-8px_0_25px_rgba(74,158,255,0.3)] hover:border-[#4a9eff] transition-all duration-[300ms] cursor-pointer">
+    <h3 class="text-xl font-semibold text-white">{{ $device->nama_device }}</h3>
+    <p class="text-md text-gray-400 py-1">{{ $device->device_code }}</p>
+    <p class="text-sm text-blue-400 py-2"> <i class="fa-solid fa-phone"></i> {{ $device->type }}</p>
+    <p class="text-sm text-gray-300 py-1"><i class="fa-solid fa-house"></i> {{ $device->status }}</p>
+    </div>
     @empty
-      <tr>
-      <td colspan="9" class="px-4 py-4 text-center text-gray-500">Data device kosong.</td>
-      </tr>
+    <div class="col-span-3 text-center text-gray-300">Tidak ada data support.</div>
     @endforelse
-    </tbody>
-    </table>
   </div>
 
-
+  <a href="{{ route('admin.update-device', $device->id) }}"
+    class="text-yellow-600 hover:text-yellow-800 font-medium">Edit</a>
+  <form action="{{ route('admin.delete-device', $device->id) }}" method="POST" class="inline">
+    @csrf
+    @method('DELETE')
+    <button onclick="return confirm('Yakin ingin hapus?')"
+      class="text-red-600 hover:text-red-800 font-medium">Hapus</button>
+  </form>
 @endsection

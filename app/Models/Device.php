@@ -19,4 +19,5 @@ class Device extends Model
         return $this->belongsTo(Support::class, 'assigned_to');
     }
 
+
 }

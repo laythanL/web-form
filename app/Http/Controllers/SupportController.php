@@ -47,7 +47,7 @@ class SupportController extends Controller
             'telepon' => 'string|required|max:100',
             'alamat' => 'string|required|max:100'
         ], [
-            'nama' => 'rwajib di isi nama ',
+            'nama' => 'wajib di isi nama ',
             'email' => 'wajib di isi email',
             'telepon' => 'wajib di isi nomor telepon ',
             'alamat' => 'wajib di isi alamat '

@@ -44,10 +44,14 @@ class DeviceController extends Controller
         $device = $request->validate([
             'nama_device' => 'required|string|max:255',
             'device_code' => 'required|string|max:100|unique:devices',
-            'type' => 'required|string|max:100',
+            'type' => 'nullable|string|max:100',
             'location' => 'nullable|string|max:100',
             'status' => 'required|in:aktif,tidak_aktif,rusak,dipinjam',
             'assigned_to' => 'nullable|exists:supports,id',
+        ], [
+            'nama_device' => 'wajib di isi nama device',
+            'device_code' => 'wajib di isi device code',
+            'status' => 'wajib di pilih',
         ]);
 
         Device::create($request->all());

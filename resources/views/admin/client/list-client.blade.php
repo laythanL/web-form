@@ -18,12 +18,12 @@
     <div
     class="bg-[#111111] rounded-xl shadow-lg p-4 border border-white/[0.2] hover:transform hover:-translate-x-1 hover:shadow-[-8px_0_25px_rgba(74,158,255,0.3)] hover:border-[#4a9eff] transition-all duration-[300ms] cursor-pointer">
     <h3 class="text-xl font-semibold text-white">{{ $client->nama_perusahaan }}</h3>
-    <p class="text-md text-gray-400 p-2">{{ $client->email }}</p>
+    <p class="text-md text-gray-400 py-1">{{ $client->email }}</p>
     <p class="text-sm text-blue-400 py-2"> <i class="fa-solid fa-phone"></i> {{ $client->no_telepon }}</p>
-    <p class="text-sm text-gray-300 py-2"><i class="fa-solid fa-building"></i> {{ $client->alamat }}</p>
+    <p class="text-sm text-gray-300 py-1"><i class="fa-solid fa-building"></i> {{ $client->alamat }}</p>
 
 
-    <div class="flex gap-2 mt-3">
+    <div class="flex gap-2  mt-3 justify-between">
       {{-- Tombol Edit --}}
       <div class="flex items-center gap-2 px-3 py-2  group">
       <a href="{{ route('admin.edit-client', $client->id) }}"

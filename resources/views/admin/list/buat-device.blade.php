@@ -30,6 +30,9 @@
             <input type="text" name="nama_device" id="nama_device"
               class="w-full p-3 bg-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Masukkan nama device">
+            @error('nama_device')
+        <div class="text-red-500 text-sm">{{ $message }}</div>
+      @enderror
           </div>
 
           {{-- Kode Device --}}
@@ -38,6 +41,9 @@
             <input type="text" name="device_code" id="device_code"
               class="w-full p-3 bg-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Masukkan kode device">
+            @error('device_code')
+        <div class="text-red-500 text-sm">{{ $message }}</div>
+      @enderror
           </div>
 
           {{-- Tipe Device --}}
@@ -46,6 +52,9 @@
             <input type="text" name="type" id="type"
               class="w-full p-3 bg-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Masukkan tipe device">
+            @error('type')
+        <div class="text-red-500 text-sm">{{ $message }}</div>
+      @enderror
           </div>
 
           {{-- Lokasi --}}
@@ -66,6 +75,9 @@
               <option value="rusak" {{ old('status') == 'rusak' ? 'selected' : '' }}>Rusak</option>
               <option value="dipinjam" {{ old('status') == 'dipinjam' ? 'selected' : '' }}>Dipinjam</option>
             </select>
+            @error('status')
+        <div class="text-red-500 text-sm">{{ $message }}</div>
+      @enderror
           </div>
 
           {{-- Assigned To --}}

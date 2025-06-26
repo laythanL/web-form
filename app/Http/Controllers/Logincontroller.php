@@ -80,6 +80,10 @@ class LoginController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', Password::defaults()],
+        ], [
+            'name' => 'nama harus di isi.',
+            'email' => 'email harus di isi.',
+            'password' => 'password harus di isi.'
         ]);
 
         // Simpan user baru dengan role default "user"
