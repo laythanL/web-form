@@ -7,11 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   @vite('resources/css/app.css')
-  <style>
-    * {
-      border: white solid 1px;
-    }
-  </style>
+
 </head>
 
 <body class="bg-[#111111] flex items-center justify-center min-h-screen">

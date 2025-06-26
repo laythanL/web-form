@@ -61,7 +61,7 @@ Route::middleware(['auth', 'role:staf'])->group(function () {
     Route::get('/staf/dashboard', function () {
         return view('staf.dashboard');
     });
-});
+})->name('dashbaord-staf');
 
 Route::get('register', [LoginController::class, 'showRegisterForm'])->name('register');
 
@@ -69,6 +69,3 @@ Route::get('register', [LoginController::class, 'showRegisterForm'])->name('regi
 Route::post('register', [LoginController::class, 'register']);
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});

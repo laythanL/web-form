@@ -91,12 +91,16 @@ class LoginController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 'staf', // role default
+            'role' => 'staf', 
         ]);
 
         // Login otomatis
         Auth::login($user);
-
-        return redirect('/dashboard'); // semua user baru ke dashboard biasa
+        $user = Auth::user();
+        if ($user->role === 'admin') {
+            return redirect('/admin/dashboard');
+        } elseif ($user->role === 'staf') {
+            return redirect('/staf/dashboard');
+        }
     }
 }
